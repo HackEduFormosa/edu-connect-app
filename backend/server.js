@@ -1,43 +1,34 @@
 import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
-import sequelize from './config/database.js';
+import connectDB from './config/database.js'; // Asegúrate de que el archivo se llame 'database.js'
+import authRoutes from './routes/auth.Routes.js'; // Asegúrate de que los nombres de archivos coincidan
+import productRoutes from './routes/product.Routes.js';
+import reservationRoutes from './routes/reservation.Routes.js';
+import fairRoutes from './routes/fair.Routes.js';
+import protect from './middlewares/authMiddleware.js'; // Asegúrate de que el archivo se llame 'authMiddleware.js'
 
-// Importar rutas
-import authRoutes from './routes/auth.Routes.js';
-import userRoutes from './routes/user.Routes.js';
-import moduleRoutes from './routes/module.Routes.js';
-import progressRoutes from './routes/progress.Routes.js';
-
-// Configuración de dotenv
 dotenv.config();
 
+// Conectar a la base de datos
+connectDB();
+
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+// Middleware para manejar JSON
+app.use(express.json());
 
-// Rutas
+// Rutas públicas
 app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/learning-modules', moduleRoutes);
-app.use('/api/progress', progressRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/reservations', reservationRoutes);
+app.use('/api/fairs', fairRoutes);
 
-// Iniciar el servidor
-app.listen(PORT, async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Conexión a la base de datos establecida correctamente.');
-    console.log(`Servidor en funcionamiento en el puerto ${PORT}`);
-  } catch (error) {
-    console.error('No se pudo conectar a la base de datos:', error);
-  }
+// Ruta protegida de ejemplo (requiere autenticación)
+app.use('/api/protected', protect, (req, res) => {
+  res.send('Esta es una ruta protegida');
 });
 
-// Exportar módulos para uso en otros archivos
-export { jwt, bcrypt };
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

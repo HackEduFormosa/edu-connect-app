@@ -1,21 +1,18 @@
-import { Sequelize } from 'sequelize';
-import path from 'path';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-// Configurar dotenv para cargar el archivo .env desde la carpeta backend
-dotenv.config({ path: path.resolve('.env') });
+dotenv.config();
 
-console.log({
-  DB_NAME: process.env.DB_NAME,
-  DB_USER: process.env.DB_USER,
-  DB_PASSWORD: process.env.DB_PASSWORD,
-  DB_HOST: process.env.DB_HOST
-});
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      // Opciones obsoletas eliminadas
+    });
+    console.log('MongoDB connected');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error.message);
+    process.exit(1); // Termina el proceso si hay un error
+  }
+};
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
-  logging: false,
-});
-
-export default sequelize;
+export default connectDB;
