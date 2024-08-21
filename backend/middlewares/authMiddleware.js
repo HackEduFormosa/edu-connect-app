@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-
+//funcion
 const protect = (req, res, next) => {
   const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
