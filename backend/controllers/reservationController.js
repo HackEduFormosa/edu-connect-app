@@ -4,7 +4,7 @@ import User from '../models/User.js';
 
 // Crear una reserva
 export const createReservation = async (req, res) => {
-  const { userId, productId } = req.body;
+    const { userId, productId } = req.body;
 
   try {
     // Verificar que el usuario y el producto existen
