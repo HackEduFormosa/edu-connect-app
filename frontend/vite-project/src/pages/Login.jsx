@@ -1,59 +1,80 @@
 import React from 'react';
+import { FaBagShopping } from "react-icons/fa6";
+import { Footer } from '../components/Footer.components';
+import { Header } from '../components/Header.components';
 
 const LoginForm = () => {
   return (
-    <div className="flex h-screen">
-      <div className="w-1/2 bg-gray-100 flex items-center justify-center">
-        <form className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
-          <div className="mb-4">
-            <input 
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              type="text" 
-              id="email" 
-              required 
+    <>
+    <Header />
+    <div className="flex items-center justify-center min-h-screen bg-white">
+      <div
+        className="max-w-md w-full bg-gradient-to-r from-indigo-800 to-indigo-600 rounded-xl shadow-2xl overflow-hidden p-8 space-y-8 animate-slideInFromLeft"
+      >
+        <h2 className="text-center text-4xl font-extrabold text-white flex justify-center items-center space-x-2 animate-appear">
+        <FaBagShopping />
+          <span>FormosaEmprende</span>
+          <FaBagShopping />
+        </h2>
+        <p className="text-center text-gray-200 animate-appear">
+          Inicia sesión en tu cuenta
+        </p>
+        <form method="POST" action="#" className="space-y-6">
+          <div className="relative">
+            <input
+              placeholder="john@example.com"
+              className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500"
+              required
+              id="email"
+              name="email"
+              type="email"
             />
-            <label 
-              htmlFor="email" 
-              className="block text-gray-700 text-sm font-bold mt-2"
+            <label
+              className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
+              htmlFor="email"
             >
-              Username
+              Email 
             </label>
           </div>
-          <div className="mb-4">
-            <input 
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              type="password" 
-              id="pass" 
-              required 
+          <div className="relative">
+            <input
+              placeholder="Password"
+              className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500"
+              required
+              id="password"
+              name="password"
+              type="password"
             />
-            <label 
-              htmlFor="pass" 
-              className="block text-gray-700 text-sm font-bold mt-2"
+            <label
+              className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm"
+              htmlFor="password"
             >
-              Password
+              Contraseña
             </label>
           </div>
-          <div className="flex justify-between items-center">
-            <span className="text-blue-500 hover:underline">
-              <a href="#">Forgot Password?</a>
-            </span>
-            <button 
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-              type="submit"
-            >
-              Submit
-            </button>
+          <div className="flex items-center justify-between">
+            <label className="flex items-center text-sm text-gray-200">
+              <input
+                className="form-checkbox h-4 w-4 text-purple-600 bg-gray-800 border-gray-300 rounded"
+                type="checkbox"
+              />
+              <span className="ml-2">Recuérdame</span>
+            </label>
+            <a className="text-sm text-purple-200 hover:underline" href="#">
+              ¿Olvidaste tu contraseña?
+            </a>
           </div>
+          <button
+            className="w-full py-2 px-4 bg-purple-500 hover:bg-purple-700 rounded-md shadow-lg text-white font-semibold transition duration-200"
+            type="submit"
+          >
+            Inicia sesión
+          </button>
         </form>
       </div>
-      <div className="w-1/2 bg-gray-200 flex items-center justify-center">
-        <div className="w-full max-w-md">
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 731.67004 550.61784">
-            {/* Aquí irían los paths del SVG */}
-          </svg>
-        </div>
-      </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
