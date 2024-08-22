@@ -44,7 +44,7 @@ export const Header = () => {
           >
             <a
               className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-600"
-              href="#"
+              href="/"
             >
               Inicio
             </a>
