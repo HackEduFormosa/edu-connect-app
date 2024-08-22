@@ -1,54 +1,39 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import AuthForm from './components/AuthForm';
-import Profile from './components/Profile';
-import PrivateRoute from './components/PrivateRoute';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import DashboardPage from './pages/DashboardPage';
+import AdminPanelPage from './pages/AdminPanelPage';
+import ProductListPage from './pages/ProductListPage';
+import ReservationPage from './pages/ReservationPage';
+import FairInfoPage from './pages/FairInfoPage';
+import LandingPage from './pages/LandingPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import './styles/index.css';
 
-const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const handleLogin = () => {
-    setIsAuthenticated(true); // Actualiza el estado al iniciar sesión
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false); // Actualiza el estado al cerrar sesión
-  };
-
+function App() {
   return (
     <Router>
-      <div className="app-container">
-        <nav>
-          <ul>
-            <li><Link to="/">Inicio</Link></li>
-            {isAuthenticated ? (
-              <>
-                <li><Link to="/profile">Perfil</Link></li>
-                <li><button onClick={handleLogout}>Cerrar sesión</button></li>
-              </>
-            ) : (
-              <li><Link to="/login">Iniciar sesión</Link></li>
-            )}
-          </ul>
-        </nav>
-        <main>
-          <Routes>
-            <Route path="/login" element={<AuthForm isLogin={true} />} />
-            <Route path="/register" element={<AuthForm isLogin={false} />} />
-            <Route 
-              path="/profile" 
-              element={
-                <PrivateRoute isAuthenticated={isAuthenticated}>
-                  <Profile />
-                </PrivateRoute>
-              } 
-            />
-            <Route path="/" element={<h1>Bienvenido a la Aplicación</h1>} />
-          </Routes>
-        </main>
-      </div>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+          <Route path="/admin" element={<ProtectedRoute><AdminPanelPage /></ProtectedRoute>} />
+          <Route path="/products" element={<ProductListPage />} />
+          <Route path="/reserve" element={<ProtectedRoute><ReservationPage /></ProtectedRoute>} />
+          <Route path="/fair-info" element={<FairInfoPage />} />
+        </Routes>
+      </main>
+      <Footer />
     </Router>
   );
-};
+}
 
 export default App;
