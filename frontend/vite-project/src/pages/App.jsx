@@ -2,6 +2,7 @@ import { Footer } from '../components/Footer.components';
 import { Header } from '../components/Header.components';
 import logo from "../assets/images/image1.png";
 
+
 function App() {
   return (
     <>

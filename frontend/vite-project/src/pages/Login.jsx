@@ -1,14 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaBagShopping, FaKey } from "react-icons/fa6";
 import { Footer } from '../components/Footer.components';
 import { Header } from '../components/Header.components';
+import NavBar from '../components/NavBarEmp.components';
 
 const LoginForm = () => {
   const [showCodeInput, setShowCodeInput] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userRole, setUserRole] = useState('');
+  const navigate = useNavigate();
 
   const toggleCodeInput = () => {
     setShowCodeInput(!showCodeInput);
   };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const accessCode = event.target.accessCode?.value;
+
+    if (accessCode === "codigoSuperAdmin") {
+      setUserRole('superadmin');
+    } else if (email && password) {
+      setUserRole('user'); // usuario común
+    }
+
+    setIsAuthenticated(true); // Simulación de autenticación exitosa
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (userRole === 'superadmin') {
+        navigate('/dashboard');
+      } else if (userRole === 'user') {
+        navigate('/navbar'); // Redirige a la página de NavBar para usuarios comunes
+      }
+    }
+  }, [isAuthenticated, userRole, navigate]);
 
   return (
     <>
@@ -25,7 +56,7 @@ const LoginForm = () => {
           <p className="text-center text-gray-200 animate-appear">
             Inicia sesión en tu cuenta
           </p>
-          <form method="POST" action="#" className="space-y-6">
+          <form method="POST" action="#" className="space-y-6" onSubmit={handleLogin}>
             <div className="relative">
               <input
                 placeholder="john@example.com"
@@ -59,14 +90,11 @@ const LoginForm = () => {
               </label>
             </div>
 
-
-            {/* Campo de código adicional */}
             {showCodeInput && (
               <div className="relative animate-slideDown">
                 <input
                   placeholder="Código de acceso"
                   className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-purple-500"
-                  required={showCodeInput}
                   id="accessCode"
                   name="accessCode"
                   type="text"
@@ -99,7 +127,6 @@ const LoginForm = () => {
               Inicia sesión
             </button>
             
-            {/* Ícono para mostrar el campo de código */}
             <div className="flex justify-end">
               <button
                 type="button"
@@ -107,12 +134,14 @@ const LoginForm = () => {
                 onClick={toggleCodeInput}
               >
                 <FaKey className="mr-2" />
-                {showCodeInput ? "Superadmin" : "¿Eres superadminador o administrador?"}
+                {showCodeInput ? "Superadmin" : "¿Eres superadmin o administrador?"}
               </button>
             </div>
           </form>
         </div>
       </div>
+      
+      {isAuthenticated && userRole === 'user' && <NavBar />}
       <Footer />
     </>
   );
