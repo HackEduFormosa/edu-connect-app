@@ -4,16 +4,16 @@ export const Footer = () => {
 
     return (
     
-<footer className="bg-gradient-to-r from-green-700 via-green-500 to-green-400">
+<footer className="bg-gradient-to-r from-indigo-900 via-indigo-700 to-indigo-900">
   <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
       
-      <h1 className="mr-5 h-6 sm:h-9"> FermozaEmprende</h1>
-        <p className="max-w-xs mt-4 text-sm text-gray-600">
+      <h1 className="mr-5 h-6 sm:h-9"> FormosaEmprende</h1>
+        <p className="max-w-xs mt-4 text-sm text-white">
           FermozaEmprende desarrollados por estudiantes del instituto Politécnico Formosa, con el objetivo de conectar a emprendedores formoseños con su comunidad, facilitando el crecimiento de negocios y la promoción de productos y servicios únicos.
         </p>
-        <div className="flex mt-8 space-x-6 text-gray-600">
+        <div className="flex mt-8 space-x-6 text-white">
           <a className="hover:opacity-75" href target="_blank" rel="noreferrer">
             <span className="sr-only"> Facebook </span>
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -51,7 +51,7 @@ export const Footer = () => {
           <p className="font-medium">
             Comunidad Hackathon
           </p>
-          <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+          <nav className="flex flex-col mt-4 space-y-2 text-sm text-white">
             <a className="hover:opacity-75" href> About </a>
             <a className="hover:opacity-75" href> Meet the Team </a>
             <a className="hover:opacity-75" href> History </a>
@@ -62,7 +62,7 @@ export const Footer = () => {
           <p className="font-medium">
             Servicios
           </p>
-          <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+          <nav className="flex flex-col mt-4 space-y-2 text-sm text-white">
             <a className="hover:opacity-75" href> 1on1 Coaching </a>
             <a className="hover:opacity-75" href> Company Review </a>
             <a className="hover:opacity-75" href> Accounts Review </a>
@@ -74,7 +74,7 @@ export const Footer = () => {
           <p className="font-medium">
             Helpful Links
           </p>
-          <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+          <nav className="flex flex-col mt-4 space-y-2 text-sm text-white">
             <a className="hover:opacity-75" href> Contacto </a>
           </nav>
         </div>
@@ -82,7 +82,7 @@ export const Footer = () => {
           <p className="font-medium">
             Legal
           </p>
-          <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+          <nav className="flex flex-col mt-4 space-y-2 text-sm text-white">
             <a className="hover:opacity-75" href> Privacy Policy </a>
             <a className="hover:opacity-75" href> Terms &amp; Conditions </a>
             <a className="hover:opacity-75" href> Returns Policy </a>
@@ -91,7 +91,7 @@ export const Footer = () => {
         </div>
       </div>
     </div>
-    <p className="mt-8 text-xs text-gray-800">
+    <p className="mt-8 text-xs text-white">
       © 2024 Todos los derechos reservados!
     </p>
   </div>
