@@ -4,6 +4,7 @@ import logo from "../assets/images/image1.png";
 import imagen1 from '../assets/images/image5.png';
 
 
+
 function App() {
   return (
     <>
@@ -33,6 +34,7 @@ function App() {
           </div>
         </div>
       </section>
+      
 
       <section className="bg-white">
         <div className="max-w-5xl px-6 py-16 mx-auto">
@@ -48,7 +50,7 @@ function App() {
                       <div className="p-6">
                           <h3 className="text-2xl font-bold mb-4">Las Brujas Moda</h3>
                               <p className="text-gray-700">Empredimiento de ropa de damas</p>
-                            <a href="#" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
+                            <a href="/emprendimiento" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
                            </div>
           </div>
 
@@ -57,7 +59,7 @@ function App() {
                                 <div className="p-6">
                                     <h3 className="text-2xl font-bold mb-4">Hecho con Amor</h3>
                                     <p className="text-gray-700">Accesorios hecho a mano</p>
-                                    <a href="#" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
+                                    <a href="/emprendimiento" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
                                 </div>
                             </div>
 
@@ -66,7 +68,7 @@ function App() {
                                 <div className="p-6">
                                     <h3 className="text-2xl font-bold mb-4">Coronadas</h3>
                                     <p className="text-gray-700">Pulseras hecho a mano</p>
-                                    <a href="#" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
+                                    <a href="/emprendimiento" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
                                 </div>
                             </div>
           </div>
