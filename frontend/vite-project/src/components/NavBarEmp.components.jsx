@@ -86,28 +86,18 @@ function NavBar() {
           <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center">
             <a
               className="text-white hover:underline sm:mx-3 sm:my-0 my-3"
-              href="#home"
+              href="/noticias"
             >
-              Home
+              Noticias
             </a>
             <a
               className="text-white hover:underline sm:mx-3 sm:my-0 my-3"
-              href="#shop"
+              href="/publicar"
             >
-              Shop
+              Publicar
             </a>
-            <a
-              className="text-white hover:underline sm:mx-3 sm:my-0 my-3"
-              href="#categories"
-            >
-              Categorias
-            </a>
-            <a
-              className="text-white hover:underline sm:mx-3 sm:my-0 my-3"
-              href="#contact"
-            >
-              Contact
-            </a>
+           
+            
           </div>
         </nav>
       </div>
