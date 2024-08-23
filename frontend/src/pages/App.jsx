@@ -1,9 +1,10 @@
 import { Footer } from '../components/Footer.components';
 import { Header } from '../components/Header.components';
 import logo from "../assets/images/image1.png";
-
+import { fetchProducts } from '../services/api'; // Importación correcta
 
 function App() {
+  // Puedes usar la función fetchProducts aquí si lo necesitas
   return (
     <>
       <Header />

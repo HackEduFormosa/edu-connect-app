@@ -7,6 +7,8 @@ import PrivateRoute from "./Private.routes";
 import { Noticias } from "../pages/Noticias";
 import Categories from "../components/PublicarArt.components";
 import RegisterForm from "../components/RegisterForm";
+import TestConnection from "../components/TestConnection";
+
 const MainRoutes = () => {
   const isAuthenticated = true; // Aquí iría tu lógica de autenticación real
 
@@ -18,6 +20,7 @@ const MainRoutes = () => {
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/publicar" element={<Categories />} />
         <Route path="/register" element={<RegisterForm />} />
+        <Route path="/test-connection" element={<TestConnection />} /> {/* Nueva ruta */}
         {/* Ruta privada */}
         <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
           <Route path="/navbar" element={<NavBar />} />

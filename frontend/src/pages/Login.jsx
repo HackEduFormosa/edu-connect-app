@@ -1,11 +1,11 @@
 // frontend/pages/LoginForm.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { FaBagShopping, FaKey } from "react-icons/fa6";
 import { Footer } from '../components/Footer.components';
 import { Header } from '../components/Header.components';
 import NavBar from '../components/NavBarEmp.components';
+import { fetchFunction } from '../services/api'; 
 
 const LoginForm = () => {
   const [showCodeInput, setShowCodeInput] = useState(false);
@@ -24,7 +24,7 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await fetchFunction('POST', 'http://localhost:5000/api/auth/login', {
         email,
         password,
         accessCode: showCodeInput ? accessCode : null,
@@ -153,10 +153,6 @@ const LoginForm = () => {
               </button>
             </div>
           </form>
-
-          <p className="text-center text-gray-200 mt-4">
-            ¿No tienes una cuenta? <a href="/register" className="text-purple-200 hover:underline">Regístrate aquí</a>
-          </p>
         </div>
       </div>
       

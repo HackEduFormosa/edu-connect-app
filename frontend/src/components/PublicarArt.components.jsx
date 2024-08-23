@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaEdit, FaTrash, FaShoppingBag } from 'react-icons/fa';
 import { Footer } from './Footer.components';
-
+import { fetchProducts } from '../services/api';
 const Categories = () => {
     const [cartOpen, setCartOpen] = useState(false);
 
