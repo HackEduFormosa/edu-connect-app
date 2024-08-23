@@ -134,7 +134,7 @@ const LoginForm = () => {
                 onClick={toggleCodeInput}
               >
                 <FaKey className="mr-2" />
-                {showCodeInput ? "Superadmin" : "¿Eres superadmin o administrador?"}
+                {showCodeInput ? "Superadmin" : "Soy superadmin"}
               </button>
             </div>
           </form>
