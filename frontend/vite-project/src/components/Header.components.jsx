@@ -50,9 +50,9 @@ export const Header = () => {
             </a>
             <a
               className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-600"
-              href="#"
+              href="/noticias"
             >
-              Productos
+              Noticias
             </a>
             <a
               className="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-indigo-600"
