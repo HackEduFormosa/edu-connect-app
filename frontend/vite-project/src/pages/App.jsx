@@ -1,6 +1,7 @@
 import { Footer } from '../components/Footer.components';
 import { Header } from '../components/Header.components';
 import logo from "../assets/images/image1.png";
+import imagen1 from '../assets/images/image5.png';
 
 
 function App() {
@@ -37,31 +38,37 @@ function App() {
         <div className="max-w-5xl px-6 py-16 mx-auto">
           <div className="md:flex md:justify-between">
             <h2 className="text-3xl font-semibold text-gray-800">
-              "FormosaEmprende, pensado para emprendedores como vos"
+              Todos los emprendimientos de Formosa
             </h2>
           </div>
 
           <div className="grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
-            <div className="px-6 py-8 overflow-hidden bg-indigo-900 rounded-md shadow-md">
-              <h2 className="text-xl font-medium text-gray-400">Conexión Directa</h2>
-              <p className="max-w-md mt-4 text-gray-50">
-                En FormosaEmprende, facilitamos la conexión entre emprendedores locales y sus clientes. Nuestro objetivo es fortalecer el mercado local y crear oportunidades de crecimiento.
-              </p>
-            </div>
+          <div  className="bg-white rounded-lg shadow-md overflow-hidden">
+                 <img src={imagen1} alt="Noticia Imagen" className="w-full h-64 object-cover" />
+                      <div className="p-6">
+                          <h3 className="text-2xl font-bold mb-4">Las Brujas Moda</h3>
+                              <p className="text-gray-700">Empredimiento de ropa de damas</p>
+                            <a href="#" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
+                           </div>
+          </div>
 
-            <div className="px-6 py-8 overflow-hidden bg-indigo-900 rounded-md shadow-md">
-              <h2 className="text-xl font-medium text-gray-400">Control Total</h2>
-              <p className="max-w-md mt-4 text-gray-50">
-                Te brindamos herramientas prácticas para que tengas control total sobre tus productos y servicios, simplificando la gestión de tu emprendimiento y permitiéndote enfocarte en crecer.
-              </p>
-            </div>
+          <div  className="bg-white rounded-lg shadow-md overflow-hidden">
+                                <img src={imagen1} alt="Noticia Imagen" className="w-full h-64 object-cover" />
+                                <div className="p-6">
+                                    <h3 className="text-2xl font-bold mb-4">Hecho con Amor</h3>
+                                    <p className="text-gray-700">Accesorios hecho a mano</p>
+                                    <a href="#" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
+                                </div>
+                            </div>
 
-            <div className="px-6 py-8 overflow-hidden bg-indigo-900 rounded-md shadow-md">
-              <h2 className="text-xl font-medium text-gray-400">Promoción y Visibilidad</h2>
-              <p className="max-w-md mt-4 text-gray-50">
-                Ayudamos a los emprendedores a destacar su oferta en el mercado. Promocionamos productos y servicios locales, aumentando su visibilidad y atrayendo nuevos clientes.
-              </p>
-            </div>
+                            <div  className="bg-white rounded-lg shadow-md overflow-hidden">
+                                <img src={imagen1} alt="Noticia Imagen" className="w-full h-64 object-cover" />
+                                <div className="p-6">
+                                    <h3 className="text-2xl font-bold mb-4">Coronadas</h3>
+                                    <p className="text-gray-700">Pulseras hecho a mano</p>
+                                    <a href="#" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
+                                </div>
+                            </div>
           </div>
         </div>
       </section>
