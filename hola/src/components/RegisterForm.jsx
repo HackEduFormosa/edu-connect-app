@@ -1,44 +1,10 @@
+// src/components/RegisterForm.jsx
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { env } from "../config/config";
-
-export const fetchFunction = async (route, method, payload) => {
-  const url = `${env.SERVER_PATH}/${route}`;
-
-  console.log(env.SERVER_PATH);
-  
-
-  try {
-    const response = await fetch(url, {
-      method: method,
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": localStorage.getItem("token") || '',
-      },
-      body: method !== "GET" ? JSON.stringify(payload) : undefined,
-    });
-
-    if (!response.ok) {
-     
-      const errorResponse = await response.text(); 
-      console.log('Response Error:', errorResponse);
-
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    return response.json();
-  } catch (error) {
-    console.error('Error en la solicitud:', error.message);
-    throw error;
-  }
-};
-
+import { fetchFunction } from '../api/apiFetch'; // Ajusta la ruta según la estructura de tu proyecto
 
 const RegisterForm = () => {
-
-  console.log();
-  
-
   const [userData, setUserData] = useState({
     name: '',
     lastName: '',
@@ -266,16 +232,17 @@ const RegisterForm = () => {
             {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
           </div>
 
-          {/* Eliminada la opción de rol "Usuario" */}
           <div className="relative">
             <select
               name="role"
               value={userData.role}
               onChange={handleChange}
-              className="peer h-10 w-full border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:border-blue-500 focus:outline-none"
+              className="peer h-10 w-full border-b-2 border-gray-300 bg-transparent text-gray-900 focus:border-blue-500 focus:outline-none"
+              required
             >
-              <option value="admin">Admin(Emprendedor)</option>
-              <option value="superadmin">SuperAdmin</option>
+              <option value="admin">Admin</option>
+              <option value="user">Usuario</option>
+              <option value="entrepreneur">Emprendedor</option>
             </select>
             <label
               htmlFor="role"
@@ -285,8 +252,8 @@ const RegisterForm = () => {
             </label>
           </div>
 
-          {/* Solo para usuarios con rol 'emprendedor' */}
-          {userData.role === 'admin' && (
+          {/* Campos adicionales para emprendedores */}
+          {userData.role === 'entrepreneur' && (
             <>
               <div className="relative">
                 <input
@@ -295,13 +262,13 @@ const RegisterForm = () => {
                   value={userData.businessName}
                   onChange={handleChange}
                   className="peer h-10 w-full border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:border-blue-500 focus:outline-none"
-                  placeholder="Nombre del Negocio"
+                  placeholder="Nombre del Emprendimiento"
                 />
                 <label
                   htmlFor="businessName"
                   className="absolute left-0 -top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-blue-500 peer-focus:text-sm"
                 >
-                  Nombre del Negocio
+                  Nombre del Emprendimiento
                 </label>
               </div>
 
@@ -312,13 +279,13 @@ const RegisterForm = () => {
                   value={userData.businessCategory}
                   onChange={handleChange}
                   className="peer h-10 w-full border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:border-blue-500 focus:outline-none"
-                  placeholder="Categoría del Negocio"
+                  placeholder="Categoría del Emprendimiento"
                 />
                 <label
                   htmlFor="businessCategory"
                   className="absolute left-0 -top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-blue-500 peer-focus:text-sm"
                 >
-                  Categoría del Negocio
+                  Categoría del Emprendimiento
                 </label>
               </div>
 
@@ -329,13 +296,13 @@ const RegisterForm = () => {
                   value={userData.businessPhone}
                   onChange={handleChange}
                   className="peer h-10 w-full border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:border-blue-500 focus:outline-none"
-                  placeholder="Teléfono del Negocio"
+                  placeholder="Teléfono del Emprendimiento"
                 />
                 <label
                   htmlFor="businessPhone"
                   className="absolute left-0 -top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-blue-500 peer-focus:text-sm"
                 >
-                  Teléfono del Negocio
+                  Teléfono del Emprendimiento
                 </label>
               </div>
 
@@ -346,13 +313,13 @@ const RegisterForm = () => {
                   value={userData.businessAddress}
                   onChange={handleChange}
                   className="peer h-10 w-full border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:border-blue-500 focus:outline-none"
-                  placeholder="Dirección del Negocio"
+                  placeholder="Dirección del Emprendimiento"
                 />
                 <label
                   htmlFor="businessAddress"
                   className="absolute left-0 -top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-blue-500 peer-focus:text-sm"
                 >
-                  Dirección del Negocio
+                  Dirección del Emprendimiento
                 </label>
               </div>
 
@@ -362,13 +329,13 @@ const RegisterForm = () => {
                   value={userData.description}
                   onChange={handleChange}
                   className="peer h-24 w-full border-b-2 border-gray-300 bg-transparent text-gray-900 placeholder-transparent focus:border-blue-500 focus:outline-none"
-                  placeholder="Descripción del Negocio"
+                  placeholder="Descripción del Emprendimiento"
                 />
                 <label
                   htmlFor="description"
                   className="absolute left-0 -top-2.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-blue-500 peer-focus:text-sm"
                 >
-                  Descripción del Negocio
+                  Descripción del Emprendimiento
                 </label>
               </div>
             </>
@@ -376,12 +343,13 @@ const RegisterForm = () => {
 
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-md shadow-lg transition duration-200"
           >
             Registrar
           </button>
+
+          {message && <p className="text-green-500 text-center">{message}</p>}
         </form>
-        {message && <p className="text-center text-green-500">{message}</p>}
       </div>
     </div>
   );
