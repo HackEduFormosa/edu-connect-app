@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaBagShopping, FaKey } from "react-icons/fa6";
+import { FaShoppingBag, FaKey } from "react-icons/fa"; // Corregido a FaShoppingBag
 import { Footer } from '../components/Footer.components';
 import { Header } from '../components/Header.components';
 import NavBar from '../components/NavBarEmp.components';
@@ -34,7 +34,7 @@ const LoginForm = () => {
   useEffect(() => {
     if (isAuthenticated) {
       if (userRole === 'superadmin') {
-        navigate('/dashboard');
+        navigate('/dashboard'); // Redirige a la página de administración
       } else if (userRole === 'user') {
         navigate('/navbar'); // Redirige a la página de NavBar para usuarios comunes
       }
@@ -49,9 +49,9 @@ const LoginForm = () => {
           className="max-w-md w-full bg-gradient-to-r from-indigo-800 to-indigo-600 rounded-xl shadow-2xl overflow-hidden p-8 space-y-8 animate-slideInFromLeft"
         >
           <h2 className="text-center text-4xl font-extrabold text-white flex justify-center items-center space-x-2 animate-appear">
-            <FaBagShopping />
+            <FaShoppingBag />
             <span>FormosaEmprende</span>
-            <FaBagShopping />
+            <FaShoppingBag />
           </h2>
           <p className="text-center text-gray-200 animate-appear">
             Inicia sesión en tu cuenta

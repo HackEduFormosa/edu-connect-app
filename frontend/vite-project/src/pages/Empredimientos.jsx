@@ -31,7 +31,7 @@ const Emprendimiento = () => {
 
                                 <div className="mt-4 md:mx-4 md:mt-0">
                                     <h1 className="text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-                                        Copy & paste components
+                                        Emprendimiento de Accesorios
                                     </h1>
 
                                     <p className="mt-3 text-gray-500 dark:text-gray-300">
@@ -49,7 +49,7 @@ const Emprendimiento = () => {
 
                                 <div className="mt-4 md:mx-4 md:mt-0">
                                     <h1 className="text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-                                        Zero Configurations
+                                        Accesesorios
                                     </h1>
 
                                     <p className="mt-3 text-gray-500 dark:text-gray-300">
@@ -68,7 +68,7 @@ const Emprendimiento = () => {
 
                                 <div className="mt-4 md:mx-4 md:mt-0">
                                     <h1 className="text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-                                        Elegant Dark Mode
+                                        Moda
                                     </h1>
 
                                     <p className="mt-3 text-gray-500 dark:text-gray-300">
@@ -82,12 +82,14 @@ const Emprendimiento = () => {
                             <img className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full" src={image} alt="" />
                         </div>
                     </div>
+                    <a href="/productos" className="block text-blue-600 hover:underline mt-4">Ver los productos 🚀</a>
 
                     <hr className="border-gray-200 my-12 dark:border-gray-700" />
 
                     <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
                         {/* Add icons here if needed */}
                     </div>
+                  
                 </div>
             </section>
             <Footer/>

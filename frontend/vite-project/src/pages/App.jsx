@@ -71,6 +71,7 @@ function App() {
                                     <a href="/emprendimiento" className="block text-blue-600 hover:underline mt-4">Leer más 🚀</a>
                                 </div>
                             </div>
+                          
           </div>
         </div>
       </section>
