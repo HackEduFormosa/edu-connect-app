@@ -1,5 +1,7 @@
 import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Header } from '../components/Header.components';
+import { Footer } from '../components/Footer.components';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -55,6 +57,8 @@ const RegisterForm = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8 space-y-6">
         <h2 className="text-2xl font-bold text-center text-gray-900">Registrar Usuario</h2>
@@ -335,6 +339,8 @@ const RegisterForm = () => {
         </form>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
