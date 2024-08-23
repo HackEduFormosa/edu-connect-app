@@ -1,39 +1,91 @@
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
+import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
-import AdminPanelPage from './pages/AdminPanelPage';
 import ProductListPage from './pages/ProductListPage';
 import ReservationPage from './pages/ReservationPage';
 import FairInfoPage from './pages/FairInfoPage';
-import LandingPage from './pages/LandingPage';
-import ProtectedRoute from './components/ProtectedRoute';
-import './styles/index.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-          <Route path="/admin" element={<ProtectedRoute><AdminPanelPage /></ProtectedRoute>} />
-          <Route path="/products" element={<ProductListPage />} />
-          <Route path="/reserve" element={<ProtectedRoute><ReservationPage /></ProtectedRoute>} />
-          <Route path="/fair-info" element={<FairInfoPage />} />
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <LandingPage />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <>
+              <Header />
+              <LoginPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <>
+              <Header />
+              <RegisterPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <>
+              <Header />
+              <DashboardPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <>
+              <Header />
+              <ProductListPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/reservations"
+          element={
+            <>
+              <Header />
+              <ReservationPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/fairs"
+          element={
+            <>
+              <Header />
+              <FairInfoPage />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;
