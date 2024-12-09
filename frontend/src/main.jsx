@@ -1,11 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './styles/main.css'; // Archivo de estilos globales
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from '../src/pages/App';
+import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import MainRoutes from './routes/Main.routes';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root') // Asegúrate de tener un elemento con id="root" en tu index.html
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <Router>
+      <MainRoutes />
+    </Router>
+  </StrictMode>,
 );
